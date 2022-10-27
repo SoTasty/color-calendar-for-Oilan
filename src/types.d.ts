@@ -31,6 +31,7 @@ export interface EventData {
   start: string,
   end: string,
   [key: string]: any,
+  lessonsCount: number,
 }
 
 export interface Day {
