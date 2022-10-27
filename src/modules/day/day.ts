@@ -246,6 +246,7 @@ export function renderDays() {
   let isTodayYear = this.today.getFullYear() === this.currentDate.getFullYear();
   let isTodayMonth = (this.today.getMonth() === this.currentDate.getMonth()) && isTodayYear;
   this.daysIn_CurrentMonth.forEach((day: Day) => {
+    let todayLessonsCount = this.eventDayMap.filter((el: any) => el == day.day).lessonsCount;
     let isTodayDate = isTodayMonth && day.day === this.today.getDate();
     newHTML += `
       <div class="calendar__day calendar__day-active${isTodayDate ? ' calendar__day-today' : ''}${this.eventDayMap[day.day]
@@ -255,6 +256,7 @@ export function renderDays() {
         <span class="calendar__day-text">${day.day}</span>
         <div class="calendar__day-bullet"></div>
         <div class="calendar__day-box"></div>
+        <div>${todayLessonsCount}</div>
       </div>
     `;
     insertCount++;
